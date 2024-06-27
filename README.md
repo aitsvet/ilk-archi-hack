@@ -10,7 +10,10 @@
 
 ## [Демо-задача](./demo.pdf)
 
-## Разминочная задача
+## [Разминочная задача](./warmup.pdf)
+
+<details>
+<summary><b>Условия</b></summary>
 
 Имеется web-приложение интернет-магазина, реализованное с использованием популярных технологий (например, NodeJS+React).
 
@@ -22,13 +25,13 @@
 
 Прикрепите файл в формате .pptx или .pdf ([шаблон презентации](./template.pptx)).
 
-## Технологический стек
+**Технологический стек**
 
 <ins>Отмечены</ins> предпочтительные варианты.
 
 Сетевые шлюзы
 - <ins>HAProxy</ins>
-- WAF ?
+- WAF
 - Nginx
 
 Виртуализация
@@ -44,9 +47,11 @@
 - <ins>PostgreSQL</ins>
 
 Мониторинг
-- ELK + Heartbeat ?
-- <ins>Prometheus + Grafana</ins>
+- <ins>ELK + Heartbeat</ins>
+- Prometheus + Grafana
 
 Клиентская часть
 - <ins>React</ins>
 - Vue
+
+</details>
