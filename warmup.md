@@ -1,3 +1,5 @@
+## Прикладная архитектура
+
 ```mermaid
 
 graph TD
@@ -119,3 +121,87 @@ graph TD
     style F3 fill:#bbf,stroke:#333,stroke-width:2px
 
 ```
+
+## Архитектура развёртывания
+
+```mermaid
+
+graph RL
+
+    subgraph Swarm_3
+        B3[HAProxy 3<br>+ кэш]
+
+        subgraph P3
+            C3[Node.js<br>Replica 3]
+            F3[Beats<br>sidecar]
+        end
+
+        D5[PGBouncer 3]
+        D6[PostgreSQL Replica 2]
+        E9[Logstash PQ 3]
+        E6[Elasticsearch Replica 2]
+    end
+
+    subgraph Swarm_2
+        B1[HAProxy 1<br>+ кэш]
+
+        subgraph P2
+            C2[Node.js<br>Replica 2]
+            F2[Beats<br>sidecar]
+        end
+
+        D3[PGBouncer 2]
+        D4[PostgreSQL Replica 1]
+        E8[Logstash PQ 2]
+        E5[Elasticsearch Replica 1]
+    end
+
+    subgraph Swarm_1
+        B2[HAProxy 2<br>+ кэш]
+
+        subgraph P1
+            C1[Node.js<br>Replica 1]
+            F1[Beats<br>sidecar]
+        end
+
+        D1[PGBouncer 1]
+        D2[PostgreSQL Master]
+        E7[Logstash PQ 1]
+        E2[Elasticsearch Master]
+    end
+
+    subgraph Swarm_0
+        D0[PG HAProxy]
+        D7[Patroni]
+        E3[ELK HAProxy]
+        E4[Kibana]
+    end
+
+    style B1 fill:#ff9,stroke:#333,stroke-width:2px
+    style B2 fill:#ff9,stroke:#333,stroke-width:2px
+    style B3 fill:#ff9,stroke:#333,stroke-width:2px
+    style C1 fill:#9f9,stroke:#333,stroke-width:2px
+    style C2 fill:#9f9,stroke:#333,stroke-width:2px
+    style C3 fill:#9f9,stroke:#333,stroke-width:2px
+    style D0 fill:#ff9,stroke:#333,stroke-width:2px
+    style D1 fill:#f9f,stroke:#333,stroke-width:2px
+    style D2 fill:#f9f,stroke:#333,stroke-width:2px
+    style D3 fill:#f9f,stroke:#333,stroke-width:2px
+    style D4 fill:#f9f,stroke:#333,stroke-width:2px
+    style D5 fill:#f9f,stroke:#333,stroke-width:2px
+    style D6 fill:#f9f,stroke:#333,stroke-width:2px
+    style D7 fill:#f9f,stroke:#333,stroke-width:2px
+    style E2 fill:#bbf,stroke:#333,stroke-width:2px
+    style E3 fill:#ff9,stroke:#333,stroke-width:2px
+    style E4 fill:#bbf,stroke:#333,stroke-width:2px
+    style E5 fill:#bbf,stroke:#333,stroke-width:2px
+    style E6 fill:#bbf,stroke:#333,stroke-width:2px
+    style E7 fill:#bbf,stroke:#333,stroke-width:2px
+    style E8 fill:#bbf,stroke:#333,stroke-width:2px
+    style E9 fill:#bbf,stroke:#333,stroke-width:2px
+    style F1 fill:#bbf,stroke:#333,stroke-width:2px
+    style F2 fill:#bbf,stroke:#333,stroke-width:2px
+    style F3 fill:#bbf,stroke:#333,stroke-width:2px
+
+```
+
