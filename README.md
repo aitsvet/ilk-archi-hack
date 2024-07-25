@@ -12,6 +12,8 @@
 
 ## [Разминочная задача](./warmup.pdf)
 
+![warmup-miro.png](./warmup-miro.png)
+
 <details>
 <summary><b>Условия</b></summary>
 <br>
@@ -150,6 +152,8 @@ IDM
 </details>
 
 ## [Средняя задача: Электронная очередь](./queue.pdf)
+
+![queue-miro.png](./queue-miro.png)
 
 <details>
 <summary><b>Дано</b></summary>
